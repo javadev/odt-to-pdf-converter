@@ -46,7 +46,7 @@ public class PdfGenerator {
             // 1) Load ODT file by filling Velocity template engine and cache
             // it to the registry
             InputStream in = PdfGenerator.class
-                .getResourceAsStream("ODTProjectWithVelocity.odt");
+                .getResourceAsStream("application-form-ukr.odt");
             IXDocReport report = XDocReportRegistry.getRegistry().loadReport(
                 in, TemplateEngineKind.Velocity);
 
@@ -57,7 +57,7 @@ public class PdfGenerator {
 
             // 3) Generate report by merging Java model with the ODT
             OutputStream out = new FileOutputStream(new File(
-                "ODTProjectWithVelocity_Out.pdf"));
+                "application-form-ukr.pdf"));
             // report.process(context, out);
             Options options = Options.getTo(ConverterTypeTo.PDF).via(
                 ConverterTypeVia.ODFDOM);
