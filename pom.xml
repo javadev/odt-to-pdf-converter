@@ -40,6 +40,11 @@
         <artifactId>xmltool</artifactId>
         <version>3.3</version>
       </dependency>
+      <dependency>
+        <groupId>net.java.dev.swing-layout</groupId>
+        <artifactId>swing-layout</artifactId>
+        <version>1.0</version>
+      </dependency>
     </dependencies>
 
     <repositories>
@@ -73,7 +78,7 @@
                   <archive>
                       <manifest>
                           <addClasspath>true</addClasspath>
-                          <mainClass>com.github.odttopdf.OdtToPdfConverter</mainClass>
+                          <mainClass>com.github.odttopdf.OdtToPdfConverterApp</mainClass>
                           <classpathPrefix>jars/</classpathPrefix>
                       </manifest>
                   </archive>
@@ -110,7 +115,7 @@
           </execution>
         </executions>
         <configuration>
-          <mainClass>com.github.odttopdf.OdtToPdfConverter</mainClass>
+          <mainClass>com.github.odttopdf.OdtToPdfConverterApp</mainClass>
         </configuration>
       </plugin>
       <plugin>

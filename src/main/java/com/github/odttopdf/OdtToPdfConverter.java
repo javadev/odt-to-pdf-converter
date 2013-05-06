@@ -25,7 +25,6 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Properties;
 
 import com.mycila.xmltool.XMLDoc;
 import com.mycila.xmltool.XMLTag;
@@ -38,7 +37,6 @@ import fr.opensagres.xdocreport.document.IXDocReport;
 import fr.opensagres.xdocreport.document.registry.XDocReportRegistry;
 import fr.opensagres.xdocreport.template.IContext;
 import fr.opensagres.xdocreport.template.TemplateEngineKind;
-import org.apache.velocity.app.Velocity;
 
 /**
  * Converts ODT to PDF.
@@ -51,10 +49,10 @@ public class OdtToPdfConverter {
     private XMLTag xmlTag;
 
     private String get(String path) {
-        return xmlTag.hasTag(path) ? xmlTag.getText(path) : "";
+        return xmlTag != null && xmlTag.hasTag(path) ? xmlTag.getText(path) : "";
     }
 
-    private void createDocument(List<String> templates, List<String> xmls) {
+    public void createDocument(List<String> templates, List<String> xmls, String outputFileOrDir) {
         if (!xmls.isEmpty()) {
             xmlTag = XMLDoc.from(MergeXml.merge(xmls), true);
         }
@@ -72,17 +70,22 @@ public class OdtToPdfConverter {
                 context.put("fio", get("surname") + " " + get("firstName") + " " + get("middleName"));
     
                 // 3) Generate report by merging Java model with the ODT
+                String outputFileName = template;
+                if (outputFileOrDir != null && new File(outputFileOrDir).isDirectory()) {
+                    outputFileName = outputFileOrDir + "/" + new File(template).getName();
+                } else if (outputFileOrDir != null && !outputFileOrDir.trim().isEmpty()) {
+                    outputFileName = outputFileOrDir;
+                }
                 OutputStream out = new FileOutputStream(new File(
-                    template.replaceFirst("\\.odt$", ".pdf")));
-                // report.process(context, out);
+                    outputFileName.replaceFirst("\\.odt$", ".pdf")));
                 Options options = Options.getTo(ConverterTypeTo.PDF).via(
                     ConverterTypeVia.ODFDOM);
                 report.convert(context, options, out);
     
-            } catch (IOException e) {
-                e.printStackTrace();
-            } catch (XDocReportException e) {
-                e.printStackTrace();
+            } catch (IOException ex) {
+                Log.error(ex, ex.getMessage());
+            } catch (XDocReportException ex) {
+                Log.error(ex, ex.getMessage());
             }
         }
     }
@@ -105,7 +108,6 @@ public class OdtToPdfConverter {
            Log.info(USAGE);
            return;
         }
-        new OdtToPdfConverter().createDocument(templates, xmls);
+        new OdtToPdfConverter().createDocument(templates, xmls, "");
     }
-
 }
