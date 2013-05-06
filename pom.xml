@@ -4,10 +4,10 @@
 
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.github</groupId>
-    <artifactId>doctopdf</artifactId>
+    <artifactId>odttopdf</artifactId>
     <packaging>jar</packaging>
     <version>1.0-SNAPSHOT</version> 
-    <name>doctopdf</name>
+    <name>odttopdf</name>
 
     <dependencies>
       <dependency>
@@ -73,7 +73,7 @@
                   <archive>
                       <manifest>
                           <addClasspath>true</addClasspath>
-                          <mainClass>com.github.doctopdf.PdfGenerator</mainClass>
+                          <mainClass>com.github.odttopdf.OdtToPdfConverter</mainClass>
                           <classpathPrefix>jars/</classpathPrefix>
                       </manifest>
                   </archive>
@@ -110,7 +110,7 @@
           </execution>
         </executions>
         <configuration>
-          <mainClass>com.github.doctopdf.PdfGenerator</mainClass>
+          <mainClass>com.github.odttopdf.OdtToPdfConverter</mainClass>
         </configuration>
       </plugin>
       <plugin>
