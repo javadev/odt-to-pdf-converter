@@ -127,7 +127,7 @@ public class OdtToPdfConverterApp extends javax.swing.JFrame {
         chooser2.setDialogTitle("Select ODT directory");
         chooser2.setCurrentDirectory(new File("."));
         chooser2.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-                chooser1.addChoosableFileFilter(new FilterODT());
+        chooser2.addChoosableFileFilter(new FilterODT());
         chooser3.addChoosableFileFilter(new FilterPDF());
         chooser3.setDialogTitle("Select PDF file");
         chooser3.setCurrentDirectory(new File("."));
@@ -398,12 +398,28 @@ private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
         //</editor-fold>
 
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new OdtToPdfConverterApp().setVisible(true);
+        if (args.length != 0) {
+            List<String> templates = new ArrayList<String>();
+            List<String> xmls = new ArrayList<String>();
+            for (String arg : args) {
+                if (arg.endsWith(".odt")) {
+                    templates.add(arg);
+                } else if (arg.endsWith(".xml")) {
+                    xmls.add(arg);
+                }
             }
-        });
+            if (!templates.isEmpty()) {
+                Log.info("Converting " + templates.toString().replaceAll("[\\[\\]]", "") + " ...");
+                new OdtToPdfConverter().createDocument(templates, xmls, "");
+            } else {
+                /* Create and display the form */
+                java.awt.EventQueue.invokeLater(new Runnable() {
+                    public void run() {
+                        new OdtToPdfConverterApp().setVisible(true);
+                    }
+                });
+            }
+        }
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
