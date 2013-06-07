@@ -411,15 +411,15 @@ private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
             if (!templates.isEmpty()) {
                 Log.info("Converting " + templates.toString().replaceAll("[\\[\\]]", "") + " ...");
                 new OdtToPdfConverter().createDocument(templates, xmls, "");
-            } else {
-                /* Create and display the form */
-                java.awt.EventQueue.invokeLater(new Runnable() {
-                    public void run() {
-                        new OdtToPdfConverterApp().setVisible(true);
-                    }
-                });
+                System.exit(0);
             }
         }
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new OdtToPdfConverterApp().setVisible(true);
+            }
+        });
     }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
