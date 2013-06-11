@@ -124,16 +124,18 @@ public class OdtToPdfConverterApp extends javax.swing.JFrame {
         chooser1.addChoosableFileFilter(new FilterODT());
         chooser1.setDialogTitle("Select ODT file");
         chooser1.setCurrentDirectory(new File("."));
+        chooser1.setFileFilter(new FilterODT());
         chooser2.setDialogTitle("Select ODT directory");
         chooser2.setCurrentDirectory(new File("."));
         chooser2.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-        chooser2.addChoosableFileFilter(new FilterODT());
-        chooser3.addChoosableFileFilter(new FilterPDF());
+        chooser2.setFileFilter(new FilterODT());
         chooser3.setDialogTitle("Select PDF file");
         chooser3.setCurrentDirectory(new File("."));
+        chooser3.setFileFilter(new FilterPDF());
         chooser4.setDialogTitle("Select PDF directory");
         chooser4.setCurrentDirectory(new File("."));
         chooser4.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+        chooser4.setFileFilter(new FilterPDF());
 
         final java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit().getScreenSize();
         final int x = (screenSize.width - getWidth()) / 2;
