@@ -7,7 +7,7 @@ The java/swing application to convert odt files to the pdf files
 
 [![Screen short](https://raw.github.com/javadev/odt-to-pdf-converter/master/odttopdf.png)](https://github.com/javadev/odt-to-pdf-converter)
 
-How to setup cyrilic fonts in Ubuntu Linux:
+How to setup cyrillic fonts in Ubuntu Linux:
 
 Edit /etc/apt/sources/list
 
