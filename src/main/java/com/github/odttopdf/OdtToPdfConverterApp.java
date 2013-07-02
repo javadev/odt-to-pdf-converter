@@ -377,6 +377,23 @@ private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
      * @param args the command line arguments
      */
     public static void main(String args[]) {
+        if (args.length != 0) {
+            List<String> templates = new ArrayList<String>();
+            List<String> xmls = new ArrayList<String>();
+            for (String arg : args) {
+                if (arg.endsWith(".odt")) {
+                    templates.add(arg);
+                } else if (arg.endsWith(".xml")) {
+                    xmls.add(arg);
+                }
+            }
+            if (!templates.isEmpty()) {
+                Log.info("Converting " + templates.toString().replaceAll("[\\[\\]]", "") + " ...");
+                new OdtToPdfConverter().createDocument(templates, xmls, "");
+                System.exit(0);
+            }
+        }
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -400,22 +417,6 @@ private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRS
         }
         //</editor-fold>
 
-        if (args.length != 0) {
-            List<String> templates = new ArrayList<String>();
-            List<String> xmls = new ArrayList<String>();
-            for (String arg : args) {
-                if (arg.endsWith(".odt")) {
-                    templates.add(arg);
-                } else if (arg.endsWith(".xml")) {
-                    xmls.add(arg);
-                }
-            }
-            if (!templates.isEmpty()) {
-                Log.info("Converting " + templates.toString().replaceAll("[\\[\\]]", "") + " ...");
-                new OdtToPdfConverter().createDocument(templates, xmls, "");
-                System.exit(0);
-            }
-        }
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
