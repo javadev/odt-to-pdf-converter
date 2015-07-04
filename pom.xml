@@ -13,25 +13,25 @@
       <dependency>
         <groupId>fr.opensagres.xdocreport</groupId>
         <artifactId>fr.opensagres.xdocreport.document.odt</artifactId>
-        <version>1.0.3</version>
+        <version>1.0.5</version>
       </dependency>
       <dependency>
         <groupId>fr.opensagres.xdocreport</groupId>
         <artifactId>fr.opensagres.xdocreport.template.velocity</artifactId>
-        <version>1.0.3</version>
+        <version>1.0.5</version>
       </dependency>
       <dependency>
         <groupId>fr.opensagres.xdocreport</groupId>
         <artifactId>fr.opensagres.xdocreport.converter.odt.odfdom</artifactId>
-        <version>1.0.3</version>
+        <version>1.0.5</version>
         <exclusions>
             <exclusion>
                 <groupId>bouncycastle</groupId>
-	        <artifactId>bcmail-jdk14</artifactId>
+            <artifactId>bcmail-jdk14</artifactId>
             </exclusion>
             <exclusion>
                 <groupId>bouncycastle</groupId>
-	        <artifactId>bcprov-jdk14</artifactId>
+            <artifactId>bcprov-jdk14</artifactId>
             </exclusion>
         </exclusions>
       </dependency>
