@@ -5,7 +5,7 @@
   <groupId>com.github.javadev</groupId>
   <artifactId>odttopdf</artifactId>
   <packaging>jar</packaging>
-  <version>1.0</version>
+  <version>1.1</version>
   <name>command line utility to convert odt files to the pdf files</name>
   <description>The command line utility to convert odt files to the pdf files</description>
   <url>https://github.com/javadev/odt-to-pdf-converter</url>
@@ -49,7 +49,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
+        <version>3.7.0</version>
         <configuration>
           <source>1.6</source>
           <target>1.6</target>
@@ -94,7 +94,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.10.1</version>
+        <version>3.0.0</version>
           <executions>
               <execution>
                   <id>attach-sources</id>
@@ -125,17 +125,17 @@
     <dependency>
       <groupId>fr.opensagres.xdocreport</groupId>
       <artifactId>fr.opensagres.xdocreport.document.odt</artifactId>
-      <version>1.0.5</version>
+      <version>2.0.1</version>
     </dependency>
     <dependency>
       <groupId>fr.opensagres.xdocreport</groupId>
       <artifactId>fr.opensagres.xdocreport.template.velocity</artifactId>
-      <version>1.0.5</version>
+      <version>2.0.1</version>
     </dependency>
     <dependency>
       <groupId>fr.opensagres.xdocreport</groupId>
       <artifactId>fr.opensagres.xdocreport.converter.odt.odfdom</artifactId>
-      <version>1.0.5</version>
+      <version>2.0.1</version>
       <exclusions>
           <exclusion>
               <groupId>bouncycastle</groupId>
