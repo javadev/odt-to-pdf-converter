@@ -2,6 +2,7 @@ odt-to-pdf-converter
 ====================
 
 [![Maven Central](https://img.shields.io/maven-central/v/com.github.javadev/odttopdf.svg)](http://search.maven.org/#search%7Cga%7C1%7Cg%3A%22com.github.javadev%22%20AND%20a%3A%22odttopdf%22)
+[![Java CI](https://github.com/javadev/odt-to-pdf-converter/actions/workflows/maven.yml/badge.svg)](https://github.com/javadev/odt-to-pdf-converter/actions/workflows/maven.yml)
 
 The java/swing application to convert odt files to the pdf files
 
